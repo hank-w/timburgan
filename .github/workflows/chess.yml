@@ -63,7 +63,7 @@ jobs:
 
           def valid_new_game_request(game)
             '${{ github.event.issue.title }}'.split('|')&.second.to_s == 'new' &&
-            (ENV.fetch('EVENT_USER_LOGIN') == 'timburgan' || game&.over?)
+            (ENV.fetch('EVENT_USER_LOGIN') == 'hank-w' || game&.over?)
           end
 
           # Authenticate using GITHUB_TOKEN
