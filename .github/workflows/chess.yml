@@ -184,7 +184,7 @@ jobs:
               i = 0
               issues&.each do |issue|
                 break if issue.title.start_with? 'chess|new'
-                if issue.title.start_with?('chess|move|') && ENV.fetch('REPOSITORY') == 'hank-w/hank-w'
+                if issue.title.start_with?('chess|move|') && ENV.fetch('REPOSITORY') == 'hank-w/timburgan'
                   if issue.user.login == ENV.fetch('EVENT_USER_LOGIN')
                     comment_text = "@#{ENV.fetch('EVENT_USER_LOGIN')} Slow down! You _just_ moved, so can't immediately take the next turn. Invite a friend to take the next turn! [Share on Twitter...](https://twitter.com/share?text=I'm+playing+chess+on+a+GitHub+Profile+Readme!+I+just+moved.+You+have+the+next+move+at+https://github.com/hank-w)"
                     error_notification(ENV.fetch('REPOSITORY'), ENV.fetch('EVENT_ISSUE_NUMBER'), 'confused', comment_text, e)
@@ -242,7 +242,7 @@ jobs:
                     game_stats[:end_time] = issue.created_at
                   end
                   game_stats[:moves] += 1
-                  if ENV.fetch('REPOSITORY') == 'hank-w/hank-w'
+                  if ENV.fetch('REPOSITORY') == 'hank-w/timburgan'
                     game_stats[:players].push "@#{issue.user.login}"
                   else
                     game_stats[:players].push "#{issue.user.login}"
@@ -263,7 +263,7 @@ jobs:
 
 
           #
-          # Update hank-w/hank-w/README.md
+          # Update hank-w/timburgan/README.md
           # ---------------------------------------
 
           # visually represent the board
